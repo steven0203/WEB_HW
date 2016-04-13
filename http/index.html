@@ -4,13 +4,12 @@
 <script>
 function checkbooking(){	
     var oXHR = new XMLHttpRequest();
-	para= "key1="+document.getElementById("product").value;
+	para= "key1="+document.getElementById("studentid").value;
 	oXHR.open("GET","check.php?"+para,true);
 	oXHR.onreadystatechange= function(){
 		if(oXHR.readyState==4 &&(oXHR.status==200||oXHR.status==304)){
-      var jsonObj = JSON.parse(xmlHttp.responseText);
-			var r=document.getElementById("show");
-			r.innerHTML=jsonObj.responseText;
+                   var r=document.getElementById("show");
+			r.innerHTML=oXHR.responseText;
 		}
 	}
 	
@@ -34,7 +33,7 @@ function check(){
   <br> <input type="text" id="name"><br>
   <H1><font color="green">homework</font></H1>
   student-id : <br>
-  <input input type="text" id="product"><br>
+  <input input type="text" id="studentid"><br>
 
   <input type="reset" value="Clear data ">
   <input type="button" value="Send" onclick="checkbooking()">
